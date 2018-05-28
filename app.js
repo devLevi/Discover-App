@@ -6,7 +6,7 @@ function getDataFromApi(searchTerm, callback) {
     url: TASTEDIVE_SEARCH_URL,
     data: {
         k: apiKey,
-        q: searchTerm
+        q: searchTerm,
     },
     dataType: 'json',
     type: 'GET',
@@ -27,7 +27,7 @@ function renderResult(result) {
 }
 
 function displayTasteDiveSearchData(data) {
-  const results = data.results.map((result, index) => renderResult(result));
+  const results = data.results.map((result) => renderResult(result));
   $('.js-search-results').html(results);
 }
 
