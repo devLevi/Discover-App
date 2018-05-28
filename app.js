@@ -4,13 +4,9 @@ const apiKey = '309203-mediasea-3T1SAXA6';
 function getDataFromApi(searchTerm, callback) {
   const settings = {
     url: TASTEDIVE_SEARCH_URL,
-    headers: {
-        'Access-Control-Allow-Headers': '*',
-    },
     data: {
         k: apiKey,
-        q: searchTerm,
-        limit: 10
+        q: searchTerm
     },
     dataType: 'json',
     type: 'GET',
@@ -37,7 +33,6 @@ function displayTasteDiveSearchData(data) {
 
 function watchSubmit() {
   $('.js-search-form').submit(event => {
-    debugger;
     event.preventDefault();
     const queryTarget = $(event.currentTarget).find('.js-query');
     const query = queryTarget.val();
