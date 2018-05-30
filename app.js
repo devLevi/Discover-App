@@ -73,18 +73,26 @@ function displayTasteDiveSearchData(data) {
     $('.js-search-results').html(results);
 }
 
-function searchSubmit() {
+function handleLandingPageButton() {
+    $('.form-container').on('click', '.enter-page-button', renderSearchPageHTML);
+}
+
+function handleSearchSubmitInput() {
+    $('.js-search-form').submit(function(event) {
+        event.preventDefalut();
         const queryTarget = $(event.currentTarget).find('.js-query');
         const query = queryTarget.val();
         // clear out the input
         queryTarget.val("");
         $('main').prop('hidden', false);
         getDataFromApi(query, displayTasteDiveSearchData);
+        console.log('handleSearchSubmitInput works');
+    });
 }
 
-function registerEventHandlers() {
-    $('.form-container').on('click', '.enter-page-button', renderSearchPageHTML);
-    $('.search-form-container').on('sumit', '.search-button', searchSubmit);
+function handleFormSubmissions() {
+    $(handleLandingPageButton);
+    $(handleSearchSubmitInput);
 }
 
-$(registerEventHandlers);
+$(handleFormSubmissions);
