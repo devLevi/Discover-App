@@ -2,33 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Discover Similar Music, Movies, and Books</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <link href="main.css" rel="stylesheet" type="text/css" />
-    <!-- <link rel="icon" href="placeholder" sizes="48x48"> -->
-    <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Discover Similar Music, Movies, and Books</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  <!-- <link rel="icon" href="placeholder" sizes="48x48"> -->
+  <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <header id="header">
-        <h1>discover more of what you love</h1>
-    </header>
-    <div class="form-container">
-        <form action="#" class="">
-            <button type="submit" class="enter-page-button">Discover</button>
-        </form>
+  <header id="header">
+
+    <h1>discover more of what you love</h1>
+    <p id="intorduction">let me help you find movie, music and book recommendations based on what you know you like. <br> select the type of search you would like to perform, and type in one of your favorite artists to find and purchase related and recommended media based
+      on your search!</h2>
+<!-- 
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <ls class="dropdown-content">
+          <div id="movies">movies</div>
+          <div id="music">music</div>
+          <div id="books">books</div>
+        </div>
+      </div> -->
+
+  </header>
+
+  <main role="main" aria-live="assertive">
+    <div class="search-form-container">
+      <form action="#" class="search-form js-search-form">
+        <!-- <label for="query">Input the name of any book, band or movie to find similar results!</label> -->
+        <input type="text" id="query" class="js-query">
+        <button type="submit" class="search-button">Discover</button>
+      </form>
     </div>
 
-        <!-- <div class="form-container">
-            <form action="#" class="">
-                <button type="submit" class="start-over-button">Search Again</button>
-            </form>
-        </div> -->
+    <div class="results-container">
+      <h2>Results</h2>
+      <div class="js-tastedive-search-results"></div>
+    </div>
+
+
+    <div class="js-walmart-search-results">
+      <h2>Purchase Links</h2>
+      <div class="js-walmart-search-results"></div>
+    </div>
+
+    <div class="form-container">
+      <form action="#" class="">
+        <button type="submit" class="start-over-button">New Search</button>
+      </form>
+    </div>
+
+  </main>
+
+
 
 
 </body>
-<script src="app.js"></script>
+<script type='text/javascript' src="app.js"></script>
+
 </html>
