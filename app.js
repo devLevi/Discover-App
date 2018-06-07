@@ -1,58 +1,39 @@
-// function generateSearchPageHTML() {
-//     return `
-//
-    // <div class="search-form-container">
-    //     <form action="#" class="search-form js-search-form">
-    //         <label for="query">Input the name of any book, band or movie to find similar results!</label>
-    //         <input type="text" id="query" class="js-query">
-    //         <button type="submit" class="search-button">Discover</button>
-    //     </form>
-    // </div>
-    //     <main role="main" aria-live="assertive" >
-    //         <div class="results-container">
-    //             <h2>Results</h2>
-    //             <div class="js-search-results"></div>
-    //         </div>
-    //     </main>
-//         `
-// }
-//
-// function renderView(viewHtml) {
-//     $('body').html(viewHtml);
-// }
-//
-// function renderSearchPageHTML() {
-//     renderView(generateSearchPageHTML);
-// }
-//
-// function generateResultsPageHTML() {
-//     return `
-//         <div class="results-container">
-//             <h2>Results</h2>
-//             <div class="js-search-results"></div>
-//         </div>
-//     `
-// }
-//
-// function renderResultsPageHTML() {
-//     renderView(generateResultsPageHTML);
-// }
-
 const TASTEDIVE_SEARCH_URL = 'https://tastedive.com/api/similar';
 const WALMART_SEARCH_URL = 'http://api.walmartlabs.com/v1/search';
 const apiKeyTasteDive = '309203-mediasea-3T1SAXA6';
 const apiKeyWalmart = 'k4ja8d6q36qp2bpg54b5s7pg';
 
-// function handleLandingPageButton() {
-//     $('.form-container').on('click', '.enter-page-button', renderSearchPageHTML);
-// }
+function displaySearchInput() {
+  $('.enter-page').on('click', '.discover', function() {
+  $('.enter-page').hide();
+  $('#info-div').show();
+  $('.search-input-container').show();
+  $('.results-container').hide();
+  $('.js-walmart-search-results').hide();
+  $('.start-over-btn-container').hide();
+})}
 
-function getDataFromTasteDiveApi(searchTerm, callback) {
+displaySearchInput();
+
+function displayLandingPage() {
+  $(document).ready(function() {
+  $('.enter-page').show();
+  $('#info-div').hide();
+  $('.search-input-container').hide();
+  $('.results-container').hide();
+  $('.js-walmart-search-results').hide();
+  $('.start-over-btn-container').hide();
+})}
+
+displayLandingPage();
+
+function getDataFromTasteDiveApi(searchTerm, categoryTerm, callback) {
     const settings = {
         url: TASTEDIVE_SEARCH_URL,
         data: {
             k: apiKeyTasteDive,
             q: searchTerm,
+            type: categoryTerm
         },
         dataType: 'jsonp',
         type: 'GET',
@@ -67,14 +48,14 @@ function generateTasteDiveResult(result) {
       <div>
         <div class="js-result-name">${result.Name}</div>
         <div>${result.Type}</div>
-        <form action="#" class="js-buy-link">
-          <button type="submit" class="buy-links">Purchase this ${result.Type}</button>
-        </form>
+        <button type="submit" class="buy-links">Purchase this ${result.Type}</button>
       </div>
       <br></br>
     </div>
   `;
 }
+
+
 
 function displayTasteDiveSearchData(data) {
     const results = data.Similar.Results.map((item) => generateTasteDiveResult(item));
@@ -88,7 +69,7 @@ function getDataFromWalmartApi(searchTerm, callback) {
             apiKey: apiKeyWalmart,
             query: searchTerm
         },
-        dataType: 'json',
+        dataType: 'jsonp',
         type: 'GET',
         success: callback
     };
@@ -99,27 +80,43 @@ function generateWalmartResult(result) {
     return `
     <div class="injected-results-container">
       <div>
-        <a class="js-result-name" href="${result.items.addToCartUrl}" target="_blank">${result.items.imageEntities.mediumImage}</a>
-        <div>${result.Type}</div>
+        <a class="js-result-name" href="${result.addToCartUrl}" target="_blank"><img src="${result.mediumImage}"</a>
+        <div>${result.name}</div>
+        <br>
+        <div>Customer Rating: "${result.customerRating}" </div>
+        <img src="${result.customerRatingImage}">
       </div>
-      <br></br>
     </div>
   `;
 }
 
 function displayWalmartSearchData(data) {
     // this function should display the buy links for the selected taste dive result.
+    debugger;
     const results = data.items.map((item) => generateWalmartResult(item));
     $('.js-walmart-search-results').html(results);
 }
 
 function handlePurchaseLinksBtn() {
-    $('.js-buy-link').submit(function(event) {
+    $('.js-tastedive-search-results').on('click', '.buy-links', function () {
         event.preventDefault();
-        const queryTarget = $(event.currentTarget).find('.js-result-name');
-        const query = (queryTarget).val();
+        // debugger;
+        const $queryTarget = $(event.target)
+          .closest('.injected-results-container')
+          .find('.js-result-name'); // use .closest before
+        const query = $queryTarget.text(); // use .text()
         getDataFromWalmartApi(query, displayWalmartSearchData);
     });
+    /* $('.buy-links').click(function(event) { // change to .click()
+        alert('Event handler working!')
+        event.preventDefault();
+        const $queryTarget = $(event.currentTarget)
+          .closest('.injected-results-container')
+          .find('.js-result-name'); // use .closest before
+        const query = $queryTarget.text(); // use .text()
+        alert(query);
+        getDataFromWalmartApi(query, displayWalmartSearchData);
+    }); */
 }
 
 function handleSearchSubmitInput() {
@@ -130,6 +127,8 @@ function handleSearchSubmitInput() {
         // clear out the input
         queryTarget.val("");
         $('main').prop('hidden', false);
+        // get value from category Dropdown
+        // const category = $('...').text();
         getDataFromTasteDiveApi(query, displayTasteDiveSearchData);
 
     });
@@ -137,6 +136,7 @@ function handleSearchSubmitInput() {
 
 function handleSelectedResult () {
   $(handleSearchSubmitInput);
+  // handleSearchSubmitInput();
   $(handlePurchaseLinksBtn);
 }
 
