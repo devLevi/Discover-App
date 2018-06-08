@@ -14,6 +14,15 @@
 
 <body>
 
+  <!-- <div class="splash-screen-view">
+    </div>
+    <main class="main-view">
+        <nav></nav>
+        <div class="search-view"></div>
+        <div class="similar-results-view"></div>
+        <div class="purchase-results-view"></div>
+    </main> -->
+
   <header id="header">
 
     <div class="enter-page">
@@ -30,11 +39,11 @@
 
     <div class="search-input-container">
       <div class="dropdown-menu">
-        <select>
-        <option value="movies">movies</option>
-        <option value="music">music</option>
-        <option value="books">books</option>
-      </select>
+        <select id='menu-values'>
+          <option value="movies">movies</option>
+          <option value="music">music</option>
+          <option value="books">books</option>
+        </select>
       </div>
       <div class="search-form-container">
         <form action="#" class="search-form js-search-form">
@@ -51,13 +60,13 @@
     </div>
 
 
-    <div class="js-walmart-search-results">
+    <div class="purchase-links-container">
       <h2>purchase links</h2>
       <div class="js-walmart-search-results"></div>
     </div>
 
     <div class="start-over-btn-container">
-        <button type="button" class="start-over-btn">new search</button>
+      <button type="button" class="start-over-btn">new search</button>
     </div>
 
   </main>
