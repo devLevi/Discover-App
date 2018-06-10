@@ -33,14 +33,14 @@ function showSimilarResultsView() {
     $('.splash-screen-view').hide();
     $('.main-view').hide();
     $('.js-similar-results-view').show();
-    $('.js-purchase-results-view').show();
+    $('.js-purchase-results-view').hide();
     $('.start-over-btn-container').show();
 }
 
 function showPurchaseLinks() {
     $('.splash-screen-view').hide();
     $('.main-view').hide();
-    $('.js-similar-results-view').show();
+    $('.js-similar-results-view').hide();
     $('.js-purchase-results-view').show();
     $('.start-over-btn-container').show();
 }

@@ -10,7 +10,7 @@ html, body {
   height: 100%;
 }
 
-p {
+ul {
   font-size: 18px;
 }
 
@@ -24,12 +24,27 @@ a:hover {
   opacity: 0.6;
 }
 
-.main-view p{
+.main-view ul{
   position: relative;
   height: flex;
   width: 100%;
   padding: 10px;
-  line-height: 100%;
+  line-height: 1.3em;
   background-color: rgb(65, 65, 65);
   color: white;
+}
+
+select {
+  font-size: 18px;
+  color: rgb(164, 30, 1);
+  background-color: white;
+  border: 1.5px solid rgb(65, 65, 65);
+  margin: 1.1em;
+}
+
+input, button {
+  font-size: 18px;
+  color: rgb(164, 30, 1);
+  background-color: white;
+  border-radius: 5px;
 }
