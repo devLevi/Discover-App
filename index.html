@@ -14,30 +14,16 @@
 
 <body>
 
-  <!-- <div class="splash-screen-view">
-    </div>
-    <main class="main-view">
-        <nav></nav>
-        <div class="search-view"></div>
-        <div class="similar-results-view"></div>
-        <div class="purchase-results-view"></div>
-    </main> -->
-
-  <header id="header">
-
-    <div class="enter-page">
-      <h1>discover more of what you love</h1>
-      <button type="button" class="discover">discover</button>
-    </div>
-    <div id="info-div">
-      <p id="intorduction">let me help you find movie, music and book recommendations based on what you know you like. <br> select the type of search you would like to perform, and type in one of your favorite artists to find and purchase related and recommended media based
-        on your search!</h2>
-    </div>
-  </header>
+  <div class="splash-screen-view">
+    <h1>discover more of what you love</h1>
+    <button type="button" class="discover">discover</button>
+  </div>
 
   <main role="main" aria-live="assertive">
 
-    <div class="search-input-container">
+    <div class="main-view">
+
+      <p>select a category and search for one of your favorite movies, musicians or books to discover and purchase similar results! </p>
       <div class="dropdown-menu">
         <select id='menu-values'>
           <option value="movies">movies</option>
@@ -45,6 +31,7 @@
           <option value="books">books</option>
         </select>
       </div>
+
       <div class="search-form-container">
         <form action="#" class="search-form js-search-form">
           <!-- <label for="query">Input the name of any book, band or movie to find similar results!</label> -->
@@ -52,29 +39,29 @@
           <button type="submit" class="search-button">discover</button>
         </form>
       </div>
+
     </div>
 
-    <div class="results-container">
-      <h2>results</h2>
-      <div class="js-tastedive-search-results"></div>
+    <div class="view-area">
+      <div class="js-similar-results-view">
+        <h2>results</h2>
+        <div class="js-tastedive-search-results"></div>
+      </div>
+
+
+      <div class="js-purchase-results-view">
+        <h2>purchase links</h2>
+        <div class="js-walmart-search-results"></div>
+      </div>
+
+      <div class="start-over-btn-container">
+        <button type="button" class="start-over-btn">new search</button>
+      </div>
     </div>
-
-
-    <div class="purchase-links-container">
-      <h2>purchase links</h2>
-      <div class="js-walmart-search-results"></div>
-    </div>
-
-    <div class="start-over-btn-container">
-      <button type="button" class="start-over-btn">new search</button>
-    </div>
-
   </main>
 
-
-
-
 </body>
+
 <script type='text/javascript' src="app.js"></script>
 
 </html>

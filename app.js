@@ -7,44 +7,41 @@ $(setupEventListeners);
 
 function setupEventListeners() {
     showLandingPageView();
-    $('.enter-page').on('click', '.discover', showSearchInput);
+    $('.splash-screen-view').on('click', '.discover', showSearchInput);
     $('.js-tastedive-search-results').on('click', '.buy-links', handlePurchaseLinksBtn);
     $('.js-search-form').submit(handleSearchSubmitInput);
+    $('.start-over-btn-container').on('click', '.start-over-btn', showSearchInput);
 }
 
 function showLandingPageView() {
-  $('.enter-page').show();
-  $('#info-div').hide();
-  $('.search-input-container').hide();
-  $('.results-container').hide();
-  $('.purchase-links-container').hide();
+  $('.splash-screen-view').show();
+  $('.main-view').hide();
+  $('.js-similar-results-view').hide();
+  $('.js-purchase-results-view').hide();
   $('.start-over-btn-container').hide();
 }
 
 function showSearchInput() {
-    $('.enter-page').hide();
-    $('#info-div').show();
-    $('.search-input-container').show();
-    $('.results-container').hide();
-    $('.purchase-links-container').hide();
+    $('.splash-screen-view').hide();
+    $('.main-view').show();
+    $('.js-similar-results-view').hide();
+    $('.js-purchase-results-view').hide();
     $('.start-over-btn-container').hide();
 }
 
 function showSimilarResultsView() {
-    $('.enter-page').hide();
-    $('#info-div').hide();
-    $('.search-input-container').hide();
-    $('.results-container').show();
-    $('.purchase-links-container').hide();
-    $('.start-over-btn-container').hide();
+    $('.splash-screen-view').hide();
+    $('.main-view').hide();
+    $('.js-similar-results-view').show();
+    $('.js-purchase-results-view').show();
+    $('.start-over-btn-container').show();
 }
 
 function showPurchaseLinks() {
-    $('.enter-page').hide();
-    $('#info-div').hide();
-    $('.search-input-container').hide();
-    $('.results-container').hide();
-    $('.purchase-links-container').show();
+    $('.splash-screen-view').hide();
+    $('.main-view').hide();
+    $('.js-similar-results-view').show();
+    $('.js-purchase-results-view').show();
     $('.start-over-btn-container').show();
 }
 
@@ -65,7 +62,7 @@ function getDataFromTasteDiveApi(searchTerm, categoryTerm, callback) {
 
 function generateTasteDiveResult(result) {
   return `
-    <div class="injected-results-container">
+    <div class="injected-js-similar-results-view">
       <div>
         <div class="js-result-name">${result.Name}</div>
           <div>${result.Type}</div>
@@ -76,15 +73,21 @@ function generateTasteDiveResult(result) {
   `;
 }
 
-function displayTasteDiveSearchData(data) {
-    // if (data.Similar.results.length === 0) {
-    //     $('.js-tastedive-search-results').html(generateEmptyTastediveResults());
-    // } else {
-    //
-    // }
-  const results = data.Similar.Results.map((item) => generateTasteDiveResult(item));
-  $('.js-tastedive-search-results').html(results);
+function generateEmptyTasteDiveResults () {
+  return `
+    <div class="no-results-view">Oops! Nothing was found.. Please try again!</div>
+  `
 }
+
+function displayTasteDiveSearchData(data) {
+    if (data.Similar.Results.length === 0) {
+        $('.js-tastedive-search-results').html(generateEmptyTasteDiveResults());
+    } else {
+      const results = data.Similar.Results.map((item) => generateTasteDiveResult(item));
+      $('.js-tastedive-search-results').html(results);
+    }
+    }
+
 
 function getDataFromWalmartApi(searchTerm, categoryCode, callback) {
   const settings = {
@@ -109,14 +112,13 @@ function generateWalmartResult(result) {
         `;
     } else {
     customerRatingTemplate = `
-    <div>no customer ratings</div>
+    not reviewed
     `;
     }
-    debugger;
   return `
-    <div class="injected-results-container">
+    <div class="injected-js-similar-results-view">
       <div>
-        <a class="js-result-name" href="${result.addToCartUrl}" target="_blank"><img src="${result.mediumImage}"</a>
+        <a class="js-result-name" href="${result.productUrl}" target="_blank"><img src="${result.mediumImage}"</a>
         <div>${result.name}</div>
         `+ customerRatingTemplate +`
       </div>
@@ -125,24 +127,19 @@ function generateWalmartResult(result) {
   `;
 }
 
-
-
 function displayWalmartSearchData(data) {
   const results = data.items.map((item) => generateWalmartResult(item));
   $('.js-walmart-search-results').html(results);
-  // showPurchaseLinksView();
 }
 
 function handlePurchaseLinksBtn() {
     event.preventDefault();
-    // debugger;
     showPurchaseLinks();
     const $queryTarget = $(event.target)
-      .closest('.injected-results-container')
+      .closest('.injected-js-similar-results-view')
       .find('.js-result-name');
     const query = $queryTarget.text();
     let category = $('#menu-values').val();
-    debugger;
     const CATEGORY_CODE = {
         movies: 4096,
         music: 4104,
@@ -155,11 +152,9 @@ function handleSearchSubmitInput(event) {
     event.preventDefault();
     const queryTarget = $(event.currentTarget).find('.js-query');
     const query = queryTarget.val();
-    // clear out the input
     queryTarget.val("");
     $('main').prop('hidden', false);
     const category = $('.dropdown-menu').find(':selected').text();
     showSimilarResultsView();
-    // debugger;
     getDataFromTasteDiveApi(query, category, displayTasteDiveSearchData);
 }
