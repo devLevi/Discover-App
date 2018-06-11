@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
-  font-family: 'Miriam Libre', sans-serif;
+  font-family: 'Space Mono', monospace;
+  font-family: 'Eczar', serif;
   text-align: center;
 }
 
@@ -25,7 +26,7 @@ input {
   font-size: 25px;
   color: #000;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 10px;
 }
 
@@ -33,7 +34,15 @@ button {
   font-size: 25px;
   color: #000;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+}
+
+button:hover {
+  font-size: 25px;
+  color: #fff;
+  background-color: rgb(94, 174, 204);
+  border-radius: 10px;
   box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
 }
 
@@ -77,6 +86,14 @@ header h1, .purchase-results h2, .similar-results h2 {
   box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
 }
 
+.buy-links-btn:hover {
+  font-size: 20px;
+  color: #fff;
+  background-color: rgb(94, 174, 204);
+  border-radius: 10px;
+  box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+}
+
 .magnifying-glass-icon {
   height: 45px;
 }
@@ -85,14 +102,15 @@ header h1, .purchase-results h2, .similar-results h2 {
   float: left;
   width: 30.33%;
   margin: 1.5%;
-  height: 120px;
-  padding-top: 1.4em;
+  height: 130px;
+  padding-top: 0.9em;
   background: radial-gradient(circle, rgb(255, 255, 255), rgb(189, 239, 255));
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .js-result-name {
-  font-size: 18px;
+  font-size: 25px;
   margin-bottom: 10px;
   overflow: hidden;
 }
@@ -111,7 +129,6 @@ header h1, .purchase-results h2, .similar-results h2 {
   background: radial-gradient(circle, rgb(255, 255, 255), rgba(255, 176, 22, 0.55));
   border-radius: 10px;
   overflow: scroll;
-  text-overflow: ellipsis;
 }
 
 .back-to-similar-results-container {
@@ -124,8 +141,8 @@ header h1, .purchase-results h2, .similar-results h2 {
   margin-bottom: 100px;
 }
 
-@media only screen and (max-width: 744px) {
-  .magnifying-glass-icon {
+@media only screen and (max-width: 760px) {
+  .header-icon {
     display: block;
     clear: both;
     margin-left: auto;
@@ -134,14 +151,12 @@ header h1, .purchase-results h2, .similar-results h2 {
 }
 
 @media only screen and (max-width: 640px) {
-
   select {
     font-size: 18px;
     color: #04277e;
     background-color: white;
     margin: 10px;
   }
-
   input {
     font-size: 18px;
     color: #000;
@@ -149,19 +164,23 @@ header h1, .purchase-results h2, .similar-results h2 {
     border-radius: 5px;
     margin: 10px;
   }
-
   button {
     font-size: 18px;
     color: #000;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
   }
-
+  button:hover {
+    font-size: 18px;
+    color: #fff;
+    background-color: rgb(94, 174, 204);
+    border-radius: 10px;
+    box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+  }
   label {
     font-size: 18px;
   }
-
   header h1, .purchase-results h2, .similar-results h2 {
     color: black;
     font-size: 32px;
@@ -172,31 +191,42 @@ header h1, .purchase-results h2, .similar-results h2 {
     width: 100%;
     padding: 10px;
   }
-
   .splash-screen-view h1 {
     font-family: 'Concert One';
     font-size: 30px;
     background-color: rgb(134, 222, 255);
   }
-
   .buy-links-btn {
     font-size: 18px;
     color: #000;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
   }
-
+  .buy-links-btn:hover {
+    font-size: 20px;
+    color: #fff;
+    background-color: rgb(94, 174, 204);
+    border-radius: 10px;
+    box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+  }
+  .magnifying-glass-icon {
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .injected-js-similar-results {
+    overflow: hidden;
+  }
   .injected-js-similar-results, .injected-js-purchase-results {
     width: 100%;
     clear: both;
     margin-left: auto;
     margin-right: auto;
   }
-
   .no-results-view {
     font-size: 18px;
     margin: 10px;
   }
-
 }
