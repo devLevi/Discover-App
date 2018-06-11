@@ -114,12 +114,13 @@ header h1, .purchase-results h2, .similar-results h2 {
   text-overflow: ellipsis;
 }
 
-.start-over-btn-container {
-  clear: left;
+.back-to-similar-results-container {
+  clear: both;
   margin-bottom: 10px;
 }
 
-.back-to-similar-results-container {
+.start-over-btn-container {
+  clear: both;
   margin-bottom: 100px;
 }
 
