@@ -8,9 +8,10 @@ $(setupEventListeners);
 function setupEventListeners() {
     showLandingPageView();
     $('.splash-screen-view').on('click', '.discover', showSearchInput);
-    $('.js-tastedive-search-results').on('click', '.buy-links', handlePurchaseLinksBtn);
+    $('.js-tastedive-search-results').on('click', '.buy-links-btn', handlePurchaseLinksBtn);
     $('.js-search-form').submit(handleSearchSubmitInput);
     $('.start-over-btn-container').on('click', '.start-over-btn', showSearchInput);
+    $('.back-to-similar-results-container').on('click', '.similar-results-btn', showSimilarResultsView)
 }
 
 
@@ -20,6 +21,7 @@ function showLandingPageView() {
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').hide();
   $('.start-over-btn-container').hide();
+  $('.back-to-similar-results-container').hide();
 }
 
 function showSearchInput() {
@@ -28,6 +30,7 @@ function showSearchInput() {
     $('.js-similar-results-view').hide();
     $('.js-purchase-results-view').hide();
     $('.start-over-btn-container').hide();
+    $('.back-to-similar-results-container').hide();
 }
 
 function showSimilarResultsView() {
@@ -36,6 +39,7 @@ function showSimilarResultsView() {
     $('.js-similar-results-view').show();
     $('.js-purchase-results-view').hide();
     $('.start-over-btn-container').show();
+    $('.back-to-similar-results-container').hide();
 }
 
 function showPurchaseLinks() {
@@ -44,6 +48,7 @@ function showPurchaseLinks() {
     $('.js-similar-results-view').hide();
     $('.js-purchase-results-view').show();
     $('.start-over-btn-container').show();
+    $('.back-to-similar-results-container').show();
 }
 
 function getDataFromTasteDiveApi(searchTerm, categoryTerm, callback) {
@@ -63,10 +68,10 @@ function getDataFromTasteDiveApi(searchTerm, categoryTerm, callback) {
 
 function generateTasteDiveResult(result) {
   return `
-    <div class="injected-js-similar-results-view">
+    <div class="injected-js-similar-results">
       <div>
         <div class="js-result-name">${result.Name}</div>
-          <button type="button" class="buy-links">Purchase this ${result.Type}</button>
+          <button type="button" class="buy-links-btn">Purchase this ${result.Type}</button>
       </div>
       <br></br>
     </div>
@@ -86,8 +91,7 @@ function displayTasteDiveSearchData(data) {
       const results = data.Similar.Results.map((item) => generateTasteDiveResult(item));
       $('.js-tastedive-search-results').html(results);
     }
-    }
-
+}
 
 function getDataFromWalmartApi(searchTerm, categoryCode, callback) {
   const settings = {
@@ -107,22 +111,20 @@ function getDataFromWalmartApi(searchTerm, categoryCode, callback) {
 function generateWalmartResult(result) {
     let customerRatingTemplate = ``;
     if (result.customerRating) {
-        customerRatingTemplate = `
-        <img src="${result.customerRatingImage}">
-        `;
+        customerRatingTemplate = `<img src="${result.customerRatingImage}">`;
     } else {
-    customerRatingTemplate = `
-    not reviewed`;
+        customerRatingTemplate = `not reviewed`;
     }
   return `
-    <div class="injected-js-purchase-results-view">
+    <div class="injected-js-purchase-results">
       <div>
-        <a class="js-result-name" href="${result.productUrl}" target="_blank"><img src="${result.mediumImage}"</a>
+        <a class="js-result-name" href="${result.productUrl}" target="_blank">
+            <img src="${result.mediumImage}" alt="${result.name} image"
+        </a>
         <div>${result.name}</div>
-        `+ customerRatingTemplate +`
+        ${customerRatingTemplate}
       </div>
     </div>
-    <br>
   `;
 }
 
@@ -135,7 +137,7 @@ function handlePurchaseLinksBtn() {
     event.preventDefault();
     showPurchaseLinks();
     const $queryTarget = $(event.target)
-      .closest('.injected-js-similar-results-view')
+      .closest('.injected-js-similar-results')
       .find('.js-result-name');
     const query = $queryTarget.text();
     let category = $('#menu-values').val();

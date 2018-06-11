@@ -9,6 +9,7 @@
   <link href="main.css" rel="stylesheet" type="text/css" />
   <!-- <link rel="icon" href="placeholder" sizes="48x48"> -->
   <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
@@ -16,58 +17,79 @@
 
   <div class="splash-screen-view" aria-live='polite'>
     <!-- <img src="M31Clouds_DLopez_1500.jpg" alt="space-image" class="space-image"> -->
-    <h1>discover more of what you love</h1>
-      <button type="button" class="discover">discover</button>
+    <h1>
+      <img src="magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
+      discover more of what you love
+      <img src="magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
+    </h1>
+    <button type="button" class="discover">discover</button>
   </div>
 
   <main role="main" aria-live="assertive">
 
     <div class="main-view">
-      <ul>
-        <li>1. Select a category </li>
-        <li> 2. Input a name or title</li>
-        <li>3. Discover related content!</li>
-      </ul>
+      <header role="banner">
 
-      <div class="dropdown-menu">
-        <label for="menu-values">Select a category</label>
-        <select id='menu-values'>
+        <h1>
+          <img src="magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
+          THE DISCOVER APP
+          <img src="magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
+        </h1>
+
+      </header>
+          <div class="dropdown-menu">
+            <label for="menu-values">Select a category</label>
+            <br>
+            <select id='menu-values'>
           <option value="movies">movies</option>
           <option value="music">music</option>
           <option value="books">books</option>
         </select>
-      </div>
+          </div>
 
-      <div class="search-form-container">
-        <form action="#" class="search-form js-search-form">
-          <!-- <label for="query">Input the name of any book, band or movie to find similar results!</label> -->
-          <input type="text" id="query" class="js-query">
-          <button type="submit" class="search-button">discover</button>
-        </form>
-      </div>
+          <div class="search-form-container">
+            <label for="search-form">Input a name or title</label>
+            <form action="#" class="search-form js-search-form">
+              <!-- <label for="query">Input the name of any book, band or movie to find similar results!</label> -->
+              <input type="text" id="query" class="js-query">
+              <br>
+              <button type="submit" class="search-button">discover</button>
+            </form>
+          </div>
 
     </div>
 
     <div class="view-area">
       <div class="js-similar-results-view similar-results">
-        <h2>similar results</h2>
+        <h2>
+          <img src="magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
+          SIMILAR RESULTS
+          <img src="magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
+          </h2>
         <div class="js-tastedive-search-results"></div>
       </div>
 
 
       <div class="js-purchase-results-view purchase-results">
-        <h2>purchase links</h2>
+        <h2>
+          <img src="magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
+          PURCHASE LINKS
+          <img src="magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
+        </h2>
         <div class="js-walmart-search-results"></div>
       </div>
 
       <div class="start-over-btn-container">
         <button type="button" class="start-over-btn">new search</button>
       </div>
+
+      <div class="back-to-similar-results-container">
+        <button type="button" class="similar-results-btn">back to results</button>
+      </div>
+
     </div>
   </main>
-
+  <script type='text/javascript' src="app.js"></script>
 </body>
-
-<script type='text/javascript' src="app.js"></script>
 
 </html>

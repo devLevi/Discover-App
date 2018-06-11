@@ -1,17 +1,7 @@
-*{
-    box-sizing: border-box;
-    font-family: 'Miriam Libre', sans-serif;
-    text-align: center;
-}
-
-/* html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-} */
-
-ul {
-  font-size: 18px;
+* {
+  box-sizing: border-box;
+  font-family: 'Miriam Libre', sans-serif;
+  text-align: center;
 }
 
 a {
@@ -24,89 +14,188 @@ a:hover {
   opacity: 0.6;
 }
 
-.main-view ul{
+select {
+  font-size: 25px;
+  color: #04277e;
+  background-color: white;
+  margin: 10px;
+}
+
+input {
+  font-size: 25px;
+  color: #000;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+button {
+  font-size: 25px;
+  color: #000;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+}
+
+label {
+  font-size: 25px;
+}
+
+header h1, .purchase-results h2, .similar-results h2 {
+  color: black;
+  font-size: 45px;
+  background-color: rgb(134, 222, 255);
+  font-family: 'Concert One';
   position: relative;
   height: flex;
   width: 100%;
   padding: 10px;
-  line-height: 1.3em;
-  background-color: #717171;
-  color: white;
-}
-
-select {
-  font-size: 14px;
-  color: rgb(164, 30, 1);
-  background-color: white;
-  margin: 1.1em;
-}
-
-input, button {
-  font-size: 14px;
-  color: rgb(164, 30, 1);
-  background-color: white;
-  border-radius: 5px;
-}
-
-h2 {
-  color: white;
-  background-color: #717171;
 }
 
 .splash-screen-view {
-    min-width: 400px;
-    height: 400px;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+  min-width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
-.injected-js-similar-results-view {
+
+.splash-screen-view h1 {
+  font-family: 'Concert One';
+  font-size: 45px;
+  background-color: rgb(134, 222, 255);
+}
+
+.buy-links-btn {
+  font-size: 18px;
+  color: #000;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+}
+
+.magnifying-glass-icon {
+  height: 45px;
+}
+
+.injected-js-similar-results {
   float: left;
   width: 30.33%;
   margin: 1.5%;
-  height: 100px;
+  height: 120px;
+  padding-top: 1.4em;
+  background: radial-gradient(circle, rgb(255, 255, 255), rgb(189, 239, 255));
+  border-radius: 10px;
 }
 
 .js-result-name {
   font-size: 18px;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
-.js-result-name:hover {
-  font-size: 20px;
-  text-shadow: 2px 2px #cecbd0;
+.no-results-view {
+  font-size: 25px;
+  margin: 10px;
 }
 
-.buy-links {
-    box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
-}
-.injected-js-purchase-results-view {
+.injected-js-purchase-results {
   float: left;
   width: 30.33%;
   margin: 1.5%;
   height: 300px;
+  padding-top: 1.4em;
+  background: radial-gradient(circle, rgb(255, 255, 255), rgba(255, 176, 22, 0.55));
+  border-radius: 10px;
+  overflow: scroll;
+  text-overflow: ellipsis;
 }
 
 .start-over-btn-container {
-  clear: both;
+  clear: left;
+  margin-bottom: 10px;
+}
+
+.back-to-similar-results-container {
   margin-bottom: 100px;
 }
 
-.start-over-btn {
-  color: rgb(109, 17, 159);
-  font-weight: bold;
-  font-size: 30px;
-  box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+@media only screen and (max-width: 744px) {
+  .magnifying-glass-icon {
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-@media only screen and (max-width: 600px) {
-     .injected-js-similar-results-view, .injected-js-purchase-results-view {
-       width: 100%;
-       float: none;
-       margin-left: auto;
-       margin-right: auto;
-    }
+@media only screen and (max-width: 640px) {
+
+  select {
+    font-size: 18px;
+    color: #04277e;
+    background-color: white;
+    margin: 10px;
+  }
+
+  input {
+    font-size: 18px;
+    color: #000;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  button {
+    font-size: 18px;
+    color: #000;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  header h1, .purchase-results h2, .similar-results h2 {
+    color: black;
+    font-size: 32px;
+    background-color: rgb(134, 222, 255);
+    font-family: 'Concert One';
+    position: relative;
+    height: flex;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .splash-screen-view h1 {
+    font-family: 'Concert One';
+    font-size: 30px;
+    background-color: rgb(134, 222, 255);
+  }
+
+  .buy-links-btn {
+    font-size: 18px;
+    color: #000;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+  }
+
+  .injected-js-similar-results, .injected-js-purchase-results {
+    width: 100%;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .no-results-view {
+    font-size: 18px;
+    margin: 10px;
+  }
+
 }
