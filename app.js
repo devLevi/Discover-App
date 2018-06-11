@@ -1,5 +1,5 @@
 const TASTEDIVE_SEARCH_URL = 'https://tastedive.com/api/similar';
-const WALMART_SEARCH_URL = 'http://api.walmartlabs.com/v1/search';
+const WALMART_SEARCH_URL = 'https://api.walmartlabs.com/v1/search';
 const apiKeyTasteDive = '309203-mediasea-3T1SAXA6';
 const apiKeyWalmart = 'k4ja8d6q36qp2bpg54b5s7pg';
 
