@@ -13,6 +13,7 @@ function setupEventListeners() {
     $('.start-over-btn-container').on('click', '.start-over-btn', showSearchInput);
 }
 
+
 function showLandingPageView() {
   $('.splash-screen-view').show();
   $('.main-view').hide();
@@ -65,7 +66,6 @@ function generateTasteDiveResult(result) {
     <div class="injected-js-similar-results-view">
       <div>
         <div class="js-result-name">${result.Name}</div>
-          <div>${result.Type}</div>
           <button type="button" class="buy-links">Purchase this ${result.Type}</button>
       </div>
       <br></br>
@@ -112,11 +112,10 @@ function generateWalmartResult(result) {
         `;
     } else {
     customerRatingTemplate = `
-    not reviewed
-    `;
+    not reviewed`;
     }
   return `
-    <div class="injected-js-similar-results-view">
+    <div class="injected-js-purchase-results-view">
       <div>
         <a class="js-result-name" href="${result.productUrl}" target="_blank"><img src="${result.mediumImage}"</a>
         <div>${result.name}</div>
