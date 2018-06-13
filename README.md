@@ -1,6 +1,6 @@
 The Discover App
 
-live link: https://devlevi.github.io/discover-app/
+live link: https://devlevi.github.io/Discover-App/
 
 The Discover App helps the user locate  music, movies and books similar to those searched for.
 
