@@ -1,6 +1,6 @@
 The Discover App
 
-live link: https://devlevi.github.io/discover-api-capstone/
+live link: https://devlevi.github.io/discover-app/
 
 The Discover App helps the user locate  music, movies and books similar to those searched for.
 
