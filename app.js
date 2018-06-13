@@ -109,7 +109,7 @@ function getDataFromWalmartApi(searchTerm, categoryCode, callback) {
 function generateWalmartResult(result) {
   let customerRatingTemplate = ``;
   if (result.customerRating) {
-    customerRatingTemplate = `<img src="${result.customerRatingImage}">`;
+    customerRatingTemplate = `<img src="${result.customerRatingImage}" alt="customer rating">`;
   } else {
     customerRatingTemplate = `not reviewed`;
   }

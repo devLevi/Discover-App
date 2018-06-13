@@ -15,16 +15,16 @@
 
 <body>
 
-  <div class="splash-screen-view" aria-live='polite'>
-    <h1>
-      <img src="magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon header-icon">
-      discover more of what you love
-      <img src="magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon header-icon">
-    </h1>
-    <button type="button" class="discover">discover</button>
-  </div>
-
   <main role="main" aria-live="assertive">
+
+    <div class="splash-screen-view" aria-live='polite'>
+      <h1>
+        <img src="magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon header-icon">
+        discover more of what you love
+        <img src="magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon header-icon">
+      </h1>
+      <button type="button" class="discover">discover</button>
+    </div>
 
     <div class="main-view">
       <header role="banner">
@@ -47,8 +47,8 @@
       </div>
 
       <div class="search-form-container">
-        <label for="search-form">Input a name or title</label>
         <form action="#" class="search-form js-search-form">
+          <label for="search-form">Input a name or title<br></label>
           <input type="text" id="query" class="js-query">
           <br>
           <button type="submit" class="search-button">discover</button>
