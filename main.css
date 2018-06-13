@@ -110,7 +110,7 @@ header h1, .purchase-results h2, .similar-results h2 {
 }
 
 .js-result-name {
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 10px;
   overflow: hidden;
 }
@@ -124,8 +124,8 @@ header h1, .purchase-results h2, .similar-results h2 {
   float: left;
   width: 30.33%;
   margin: 1.5%;
-  height: 300px;
-  padding-top: 1.4em;
+  height: 350px  ;
+  padding-top: 1.6em;
   background: radial-gradient(circle, rgb(255, 255, 255), rgba(255, 176, 22, 0.55));
   border-radius: 10px;
   overflow: scroll;
@@ -191,9 +191,19 @@ header h1, .purchase-results h2, .similar-results h2 {
     width: 100%;
     padding: 10px;
   }
+  .splash-screen-view {
+    min-width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
   .splash-screen-view h1 {
     font-family: 'Concert One';
-    font-size: 30px;
+    font-size: 25px;
     background-color: rgb(134, 222, 255);
   }
   .buy-links-btn {
@@ -219,8 +229,16 @@ header h1, .purchase-results h2, .similar-results h2 {
   .injected-js-similar-results {
     overflow: hidden;
   }
+
+  .js-result-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
   .injected-js-similar-results, .injected-js-purchase-results {
     width: 100%;
+    height: auto;
     clear: both;
     margin-left: auto;
     margin-right: auto;
