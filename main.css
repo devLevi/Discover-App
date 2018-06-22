@@ -16,14 +16,14 @@ a:hover {
 }
 
 select {
-  font-size: 25px;
+  font-size: 18px;
   color: #04277e;
   background-color: white;
   margin: 10px;
 }
 
 input {
-  font-size: 25px;
+  font-size: 18px;
   color: #000;
   background-color: white;
   border-radius: 10px;
@@ -31,7 +31,7 @@ input {
 }
 
 button {
-  font-size: 25px;
+  font-size: 18px;
   color: #000;
   background-color: white;
   border-radius: 10px;
@@ -40,7 +40,7 @@ button {
   box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
   margin: 0;
   outline: 0;
-  transition: all .1s linear;
+  transition: all .2s linear;
 }
 
 button:active {
@@ -49,7 +49,7 @@ button:active {
 }
 
 button:hover {
-  font-size: 25px;
+  font-size: 18px;
   color: #fff;
   background-color: rgb(94, 174, 204);
   border-radius: 10px;
@@ -57,12 +57,12 @@ button:hover {
 }
 
 label {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 header h1, .purchase-results h2, .similar-results h2 {
   color: black;
-  font-size: 45px;
+  font-size: 35px;
   background-color: rgb(134, 222, 255);
   font-family: 'Concert One';
   position: relative;
@@ -72,10 +72,10 @@ header h1, .purchase-results h2, .similar-results h2 {
 }
 
 .splash-screen-view {
-  min-width: 400px;
-  height: 400px;
+  min-width: 200px;
+  height: 200px;
   position: absolute;
-  top: 0;
+  top: 10px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -84,7 +84,7 @@ header h1, .purchase-results h2, .similar-results h2 {
 
 .splash-screen-view h1 {
   font-family: 'Concert One';
-  font-size: 45px;
+  font-size: 35px;
   background-color: rgb(134, 222, 255);
 }
 
@@ -92,12 +92,12 @@ header h1, .purchase-results h2, .similar-results h2 {
   font-size: 18px;
   color: #000;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
 }
 
 .buy-links-btn:hover {
-  font-size: 20px;
+  font-size: 19px;
   color: #fff;
   background-color: rgb(94, 174, 204);
   border-radius: 10px;
@@ -106,17 +106,22 @@ header h1, .purchase-results h2, .similar-results h2 {
 
 .magnifying-glass-icon {
   height: 45px;
+  display: block;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .injected-js-similar-results {
-  float: left;
-  width: 30.33%;
-  margin: 1.5%;
-  height: 130px;
+  margin-top: 10px;
   padding-top: 0.9em;
   background: radial-gradient(circle, rgb(255, 255, 255), rgb(189, 239, 255));
   border-radius: 10px;
-  overflow: scroll;
+  overflow: hidden;
+  height: auto;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .js-result-name {
@@ -126,19 +131,20 @@ header h1, .purchase-results h2, .similar-results h2 {
 }
 
 .no-results-view {
-  font-size: 25px;
+  font-size: 18px;
   margin: 10px;
 }
 
 .injected-js-purchase-results {
-  float: left;
-  width: 30.33%;
-  margin: 1.5%;
-  height: 350px  ;
+  margin-top: 10px;
   padding-top: 1.6em;
   background: radial-gradient(circle, rgb(255, 255, 255), rgba(255, 176, 22, 0.55));
   border-radius: 10px;
-  overflow: scroll;
+  overflow: hidden;
+  height: auto;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .back-to-similar-results-container {
@@ -151,49 +157,40 @@ header h1, .purchase-results h2, .similar-results h2 {
   margin-bottom: 100px;
 }
 
-@media only screen and (max-width: 760px) {
-  .header-icon {
-    display: block;
-    clear: both;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media only screen and (max-width: 640px) {
+@media only screen and (min-width: 740px) {
   select {
-    font-size: 18px;
+    font-size: 25px;
     color: #04277e;
     background-color: white;
     margin: 10px;
   }
   input {
-    font-size: 18px;
+    font-size: 25px;
     color: #000;
     background-color: white;
     border-radius: 5px;
     margin: 10px;
   }
   button {
-    font-size: 18px;
+    font-size: 25px;
     color: #000;
     background-color: white;
     border-radius: 10px;
     box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
   }
   button:hover {
-    font-size: 18px;
+    font-size: 25px;
     color: #fff;
     background-color: rgb(94, 174, 204);
     border-radius: 10px;
     box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
   }
   label {
-    font-size: 18px;
+    font-size: 25px;
   }
   header h1, .purchase-results h2, .similar-results h2 {
     color: black;
-    font-size: 32px;
+    font-size: 45px;
     background-color: rgb(134, 222, 255);
     font-family: 'Concert One';
     position: relative;
@@ -202,42 +199,41 @@ header h1, .purchase-results h2, .similar-results h2 {
     padding: 10px;
   }
   .splash-screen-view {
-    min-width: 300px;
-    height: 300px;
+    min-width: 400px;
+    height: 400px;
     position: absolute;
-    top: 0;
+    top: 10px;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
   }
   .splash-screen-view h1 {
-    font-family: 'Concert One';
-    font-size: 25px;
-    background-color: rgb(134, 222, 255);
+    font-size: 45px;
   }
   .buy-links-btn {
     font-size: 18px;
     color: #000;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
+
   }
   .buy-links-btn:hover {
-    font-size: 20px;
+    font-size: 19px;
     color: #fff;
     background-color: rgb(94, 174, 204);
     border-radius: 10px;
     box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
   }
   .magnifying-glass-icon {
-    display: block;
-    clear: both;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline;
   }
+
   .injected-js-similar-results {
-    overflow: hidden;
+    float: left;
+    width: 30.33%;
+    margin: 1.5%;
+    padding: 10px;
+    height: 150px;
+    clear: none;
   }
 
   .js-result-name {
@@ -246,13 +242,14 @@ header h1, .purchase-results h2, .similar-results h2 {
     overflow: hidden;
   }
 
-  .injected-js-similar-results, .injected-js-purchase-results {
-    width: 100%;
-    height: auto;
-    clear: both;
-    margin-left: auto;
-    margin-right: auto;
+.injected-js-purchase-results {
+    float: left;
+    width: 30.33%;
+    margin: 1.5%;
+    min-height: 350px;
+    clear: none;
   }
+
   .no-results-view {
     font-size: 18px;
     margin: 10px;
