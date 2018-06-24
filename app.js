@@ -20,7 +20,7 @@ function showLandingPageView() {
   $('.main-view').hide();
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').hide();
-  $('.start-over-btn-container').hide();
+  // $('.start-over-btn-container').hide();
   $('.back-to-similar-results-container').hide();
 }
 
@@ -29,25 +29,25 @@ function showSearchInput() {
   $('.main-view').show();
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').hide();
-  $('.start-over-btn-container').hide();
+  // $('.start-over-btn-container').hide();
   $('.back-to-similar-results-container').hide();
 }
 
 function showSimilarResultsView() {
   $('.splash-screen-view').hide();
-  $('.main-view').hide();
+  $('.main-view').show();
   $('.js-similar-results-view').show();
   $('.js-purchase-results-view').hide();
-  $('.start-over-btn-container').show();
+  // $('.start-over-btn-container').hide();
   $('.back-to-similar-results-container').hide();
 }
 
 function showPurchaseLinks() {
   $('.splash-screen-view').hide();
-  $('.main-view').hide();
+  $('.main-view').show();
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').show();
-  $('.start-over-btn-container').show();
+  // $('.start-over-btn-container').show();
   $('.back-to-similar-results-container').show();
 }
 
@@ -117,7 +117,7 @@ function generateWalmartResult(result) {
     <div class="injected-js-purchase-results">
       <div>
         <a class="js-result-name" href="${result.productUrl}" target="_blank">
-            <img src="${result.mediumImage}" alt="${result.name} image"
+            <img src="${result.mediumImage}" class="thumbnail" alt="${result.name} image"
         </a>
         <div>${result.name}</div>
         ${customerRatingTemplate}

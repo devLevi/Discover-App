@@ -15,79 +15,56 @@
 
 <body>
 
-  <main role="main" aria-live="assertive">
-
-    <div class="splash-screen-view">
+    <section class="splash-screen-view">
       <h1>
         <img src="./images/magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon header-icon">
         discover more of what you love
         <img src="./images/magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon header-icon">
       </h1>
       <button type="button" class="discover">discover</button>
-    </div>
+    </section>
 
-    <div class="main-view">
+    <section class="main-view">
       <header role="banner">
-
         <h1>
           <img src="./images/magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
           THE DISCOVER APP
           <img src="./images/magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
         </h1>
-
       </header>
-      <div class="dropdown-menu">
-        <label for="menu-values">Select a category</label>
-        <br>
-        <select id='menu-values'>
-          <option value="movies">movies</option>
-          <option value="music">music</option>
-          <option value="books">books</option>
-        </select>
-      </div>
+      <fieldset>
+        <div class="dropdown-menu">
+          <label for="menu-values">Select a category</label>
+          <select id='menu-values'>
+            <option value="movies">movies</option>
+            <option value="music">music</option>
+            <option value="books">books</option>
+          </select>
+        </div>
+        <div class="search-form-container">
+          <form action="#" class="search-form js-search-form">
+            <label for="search-form">Input a name or title<br></label>
+            <input type="text" id="query" class="js-query">
+            <br>
+            <button type="submit" class="search-button">discover</button>
+          </form>
+        </div>
+        <div class="back-to-similar-results-container">
+          <button type="button" class="similar-results-btn">back to results</button>
+        </div>
+      </fieldset>
+    </section>
 
-      <div class="search-form-container">
-        <form action="#" class="search-form js-search-form">
-          <label for="search-form">Input a name or title<br></label>
-          <input type="text" id="query" class="js-query">
-          <br>
-          <button type="submit" class="search-button">discover</button>
-        </form>
-      </div>
-
-    </div>
-
-    <div class="view-area" >
-      <div class="js-similar-results-view similar-results">
-        <h2>
-          <img src="./images/magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
-          SIMILAR RESULTS
-          <img src="./images/magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
-        </h2>
+      <section class="js-similar-results-view similar-results">
         <div class="js-tastedive-search-results" aria-live="assertive"></div>
-      </div>
+      </section>
 
-
-      <div class="js-purchase-results-view purchase-results">
-        <h2>
-          <img src="./images/magnifying-glass-icon.png" alt="magnifying glass icon" class="magnifying-glass-icon">
-          PURCHASE LINKS
-          <img src="./images/magnifying-glass-icon.png" alt="magnifying-glass-icon" class="magnifying-glass-icon">
-        </h2>
+      <section class="js-purchase-results-view purchase-results">
         <div class="js-walmart-search-results" aria-live="assertive"></div>
-      </div>
+      </section>
 
-      <div class="back-to-similar-results-container">
-        <button type="button" class="similar-results-btn">back to results</button>
-      </div>
-
-      <div class="start-over-btn-container">
-        <button type="button" class="start-over-btn">new search</button>
-      </div>
-
-    </div>
-  </main>
   <script type='text/javascript' src="app.js"></script>
+
 </body>
 
 </html>
