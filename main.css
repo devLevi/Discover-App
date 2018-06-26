@@ -22,6 +22,7 @@ fieldset {
 
 label {
   margin-right: 10px;
+  margin-bottom: 10px;
   text-align: right;
   font-size: 18px;
   float: left;
@@ -50,15 +51,15 @@ input {
 }
 
 button {
-  font-size: 18px;
+  font-size: 25px;
   color: #000;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 5px 0 #006599;
   cursor: pointer;
   box-shadow: inset 2px -7px 11px rgba(80, 92, 51, 0.17);
-  margin: 10px;
   outline: 0;
+  margin: 15px 0;
   transition: all .2s linear;
   float: left;
 }
@@ -69,7 +70,7 @@ button:active {
 }
 
 button:hover {
-  font-size: 18px;
+  font-size: 23px;
   color: #fff;
   background-color: rgb(94, 174, 204);
   border-radius: 10px;
@@ -102,12 +103,16 @@ header h1 {
 
 .dropdown-menu {
   height: 35px;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .search-button {
   display: inline-block;
   margin-left: none;
+}
+
+.similar-results-btn {
+  margin-left: 15px;
 }
 
 .splash-screen-view {
@@ -125,6 +130,7 @@ header h1 {
 .splash-screen-view h1 {
   font-family: 'Concert One';
   font-size: 35px;
+  padding: 15px;
   background-color: rgb(134, 222, 255);
 }
 
@@ -177,16 +183,13 @@ header h1 {
 }
 
 .injected-js-purchase-results {
-  margin-top: 10px;
+  margin: 10px auto;
   padding-top: 1.6em;
   background: radial-gradient(circle, rgb(255, 255, 255), rgba(255, 176, 22, 0.55));
   border-radius: 10px;
   overflow: hidden;
   height: auto;
   clear: both;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -213,6 +216,7 @@ header h1 {
     height: 45px;
     font-size: 25px;
     margin-right: 10px;
+    margin-bottom: 0;
     text-align: right;
     float: left;
     display: inline;

@@ -20,7 +20,6 @@ function showLandingPageView() {
   $('.main-view').hide();
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').hide();
-  // $('.start-over-btn-container').hide();
   $('.back-to-similar-results-container').hide();
 }
 
@@ -29,7 +28,6 @@ function showSearchInput() {
   $('.main-view').show();
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').hide();
-  // $('.start-over-btn-container').hide();
   $('.back-to-similar-results-container').hide();
 }
 
@@ -38,7 +36,6 @@ function showSimilarResultsView() {
   $('.main-view').show();
   $('.js-similar-results-view').show();
   $('.js-purchase-results-view').hide();
-  // $('.start-over-btn-container').hide();
   $('.back-to-similar-results-container').hide();
 }
 
@@ -47,7 +44,6 @@ function showPurchaseLinks() {
   $('.main-view').show();
   $('.js-similar-results-view').hide();
   $('.js-purchase-results-view').show();
-  // $('.start-over-btn-container').show();
   $('.back-to-similar-results-container').show();
 }
 
@@ -61,7 +57,10 @@ function getDataFromTasteDiveApi(searchTerm, categoryTerm, callback) {
     },
     dataType: 'jsonp',
     type: 'GET',
-    success: callback
+    success: callback,
+    error: function(xhr, textStatus, errorThrown){
+       alert('request failed');
+     }
   };
   $.ajax(settings);
 }
@@ -83,7 +82,9 @@ function generateEmptyTasteDiveResults() {
 }
 
 function displayTasteDiveSearchData(data) {
-  if (data.Similar.Results.length === 0) {
+  if (data.error) {
+    alert('request failed');
+  } else if (data.Similar.Results.length === 0) {
     $('.js-tastedive-search-results').html(generateEmptyTasteDiveResults());
   } else {
     const results = data.Similar.Results.map((item) => generateTasteDiveResult(item));
@@ -101,7 +102,10 @@ function getDataFromWalmartApi(searchTerm, categoryCode, callback) {
     },
     dataType: 'jsonp',
     type: 'GET',
-    success: callback
+    success: callback,
+    error: function(xhr, textStatus, errorThrown){
+       alert('request failed');
+     }
   };
   $.ajax(settings);
 }
